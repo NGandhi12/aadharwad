@@ -9,22 +9,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
          /* Navbar Styling */
-         .navbar {
-            background-color: rgba(0, 128, 0, 0.45);
-        }
-
-        .navbar-nav .nav-link {
-            color: orange;
-            transition: color 0.3s ease, font-weight 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: white;
-        }
-
-        .navbar-nav .nav-link.active {
-            font-weight: bold;
-        }
+      .navbar {
+      background-color: #262E27;
+      opacity: 90%;
+    }
+    .navbar-nav .nav-link {
+      color: orange;
+      transition: color 0.3s ease, font-weight 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: white;
+    }
+    .navbar-nav .nav-link.active {
+      font-weight: bold;
+    }
 
         /* Overlays */
         .overlay {
@@ -429,64 +427,67 @@
 
 <body>
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="#">
-            <img src="adharwadlogo.png" alt="Logo" style="height: 40px;">
-        </a>
-
-        <!-- Toggle Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+              <img src="/adharwadlogo.png" alt="Logo" style="height: 40px;">
+          </a>
+    
+          <!-- Toggle Button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#about-us">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="#">Old Age Home for Senior Citizens</a></li>
-                        <li><a class="dropdown-item" href="#">Bedridden & Critical Care Centre</a></li>
-                        <li><a class="dropdown-item" href="#">Assisted Living Center</a></li>
-                        <li><a class="dropdown-item" href="#">Adult Day Care Center</a></li>
-                        <li><a class="dropdown-item" href="#">Empowering Destitute Women</a></li>
-                        <li><a class="dropdown-item" href="#">Educational & Medical Support for Children</a></li>
-                        <li><a class="dropdown-item" href="#">NGO for Physically Challenged in Mumbai</a></li>
-                        <li><a class="dropdown-item" href="#">Old Age Home for Elderly People in Mumbai</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Media
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
-                        <li><a class="dropdown-item" href="#">Blog</a></li>
-                        <li><a class="dropdown-item" href="#">Gallery</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="sosTab">SOS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="accountTab">
-                        <i class="fa fa-user"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+                  <a class="nav-link" href="/homepage.html">Home</a>
+              </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/adharwad_about.html " >About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Services
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                          <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Media
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                          <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" id="sosTab">SOS</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" id="accountTab">
+                          <i class="fa fa-user"></i>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
 
 <!-- Account Overlay -->
 <div class="overlay" id="accountOverlay">
