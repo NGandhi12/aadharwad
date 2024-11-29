@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #4C514D;
+        }
+
+        .navbar-nav .nav-link {
+            color: orange;
+            transition: color 0.3s ease, font-weight 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: white;
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Overlays */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+        }
+
+        .overlay-content {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* SOS Options */
+        .sos-options a {
+            display: block;
+            background: #dc3545;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .sos-options a:hover {
+            background: #b52b3a;
+        }
+
+/* Hero page */
+.blog-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 980px;
+    width: 100%;
+    padding: 628px 67px 0;
+  }
+  .blog-hero-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .blog-heading {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    align-self: center;
+    font: 700 64px/1.2 Roboto, sans-serif;
+  }
+  .blog-card {
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px -6px rgba(24, 26, 42, 0.12);
+    background-color: #d5544f;
+    z-index: 10;
+    display: flex;
+    width: 758px;
+    max-width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: start;
+    margin: 85px 0 -135px;
+    padding: 30px 35px;
+  }
+  .blog-card-header {
+    align-self: stretch;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .blog-category {
+    align-self: start;
+    border-radius: 6px;
+    color: var(--White, #fff);
+    padding: 4px 10px;
+    font: 500 14px/1 Work Sans, sans-serif;
+  }
+  .blog-title {
+    color: #fff;
+    margin-top: 16px;
+    font: 600 36px/43px Raleway, sans-serif;
+  }
+  .blog-meta {
+    display: flex;
+    margin-top: 24px;
+    align-items: center;
+    gap: 20px;
+    font-family: Work Sans, sans-serif;
+    color: #fff;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  .blog-author {
+    align-self: stretch;
+    display: flex;
+    min-width: 240px;
+    align-items: center;
+    gap: 12px;
+    font: 500 30px/0.8 Work Sans, sans-serif;
+    justify-content: start;
+    margin: auto 0;
+  }
+  .author-image {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 36px;
+    border-radius: 28px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .author-name {
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .blog-date {
+    font: 400 32px/1 Work Sans, sans-serif;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .read-more-btn {
+    align-self: stretch;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-top: 24px;
+    color: var(--Primary-text, #1d2130);
+    text-align: right;
+    padding: 16px 32px;
+    font: 500 16px Roboto, sans-serif;
+    cursor: pointer;
+  }
+  @media (max-width: 991px) {
+    .blog-section {
+      max-width: 100%;
+      padding: 100px 20px 0;
+    }
+    .blog-heading {
+      font-size: 40px;
+    }
+    .blog-card {
+      margin: 40px 0 10px;
+      padding: 0 20px;
+    }
+    .blog-category {
+      white-space: initial;
+    }
+    .blog-title {
+      max-width: 100%;
+    }
+    .blog-meta {
+      max-width: 100%;
+    }
+    .read-more-btn {
+      padding: 0 20px;
+    }
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin:1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  /* Blogs */
+  .featured-section {
+        margin-top: 100px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+      .cards-container {
+        gap: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .card-column {
+        display: flex;
+        flex-direction: column;
+        width: 32%;
+      }
+      .card {
+        border-radius: 12px;
+        background: var(--Black, #0b0706);
+        color: #fff;
+        padding: 30px;
+        font: 16px Roboto, sans-serif;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .card-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .card-description {
+        font-weight: 400;
+        line-height: 1.5;
+        margin-top: 16px;
+      }
+      .action-button {
+        border-radius: 4px;
+        background-color: #fff;
+        color: var(--Primary-text, #1d2130);
+        font-weight: 500;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+      .action-button:hover {
+        background-color: #f0f0f0;
+      }
+      .card-with-image {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: #fff;
+      }
+      .card-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-overlay {
+        position: relative;
+        padding: 20px;
+        background: rgba(11, 7, 6, 0.8);
+      }
+
+      /* Ensure size consistency across all screen sizes */
+      @media (max-width: 991px) {
+        .featured-section {
+          margin-top: 60px;
+          padding: 10px;
+        }
+        .cards-container {
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .card-column {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+          /* Main Footer */
+footer .main-footer{	padding: 20px 0;	background: #252525;}
+footer ul{	padding-left: 0;	list-style: none;}
+
+/* Copy Right Footer */
+.footer-copyright {	background: #222;	padding: 5px 0;}
+.footer-copyright .logo {    display: inherit;}
+.footer-copyright nav {    float: right;    margin-top: 5px;}
+.footer-copyright nav ul {	list-style: none;	margin: 0;	padding: 0;}
+.footer-copyright nav ul li {	border-left: 1px solid #505050;	display: inline-block;	line-height: 12px;	margin: 0;	padding: 0 8px;}
+.footer-copyright nav ul li a{	color: #969696;}
+.footer-copyright nav ul li:first-child {	border: medium none;	padding-left: 0;}
+.footer-copyright p {	color: #fff;	margin: 2px 0 0;}
+
+/* Footer Top */
+.footer-top{	background: #252525;	padding-bottom: 30px;	margin-bottom: 30px;	border-bottom: 3px solid #222;}
+
+/* Footer transparent */
+footer.transparent .footer-top, footer.transparent .main-footer{	background: transparent;}
+footer.transparent .footer-copyright{	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3) ;}
+
+/* Footer light */
+footer.light .footer-top{	background: #f9f9f9;}
+footer.light .main-footer{	background: #f9f9f9;}
+footer.light .footer-copyright{	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3) ;}
+
+/* Footer 4 */
+.footer- .logo {    display: inline-block;}
+
+/*==================== 
+	Widgets 
+====================== */
+.widget{	padding: 20px;	margin-bottom: 40px;}
+.widget.widget-last{	margin-bottom: 0px;}
+.widget.no-box{	padding: 0;	background-color: transparent;	margin-bottom: 40px;
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;}
+.widget.subscribe p{	margin-bottom: 18px;}
+.widget li a{	color: #F18D51;}
+.widget li a:hover{	color: #4b92dc;}
+.widget-title {margin-bottom: 20px;}
+.widget-title span {background: #839FAD none repeat scroll 0 0;display: block; height: 1px;margin-top: 25px;position: relative;width: 20%;}
+.widget-title span::after {background: inherit;content: "";height: inherit;    position: absolute;top: -4px;width: 50%;}
+.widget-title.text-center span,.widget-title.text-center span::after {margin-left: auto;margin-right:auto;left: 0;right: 0;}
+.widget .badge{	float: right;	background: #7f7f7f;}
+
+.typo-light h1, 
+.typo-light h2, 
+.typo-light h3, 
+.typo-light h4, 
+.typo-light h5, 
+.typo-light h6,
+.typo-light p,
+.typo-light div,
+.typo-light span,
+.typo-light small{	color: #fff;}
+
+ul.social-footer2 {	margin: 0;padding: 0;	width: auto;}
+ul.social-footer2 li {display: inline-block;padding: 0;}
+ul.social-footer2 li a:hover {background-color:#ff8d1e;}
+ul.social-footer2 li a {display: block;	height:30px;width: 30px;text-align: center;}
+.btn{background-color: #ff8d1e; color:#fff;}
+.btn:hover, .btn:focus, .btn.active {background: #4b92dc;color: #fff;
+-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-webkit-transition: all 250ms ease-in-out 0s;
+-moz-transition: all 250ms ease-in-out 0s;
+-ms-transition: all 250ms ease-in-out 0s;
+-o-transition: all 250ms ease-in-out 0s;
+transition: all 250ms ease-in-out 0s;
+
+}
+
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.ease-all{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+/* Social Icons */
+
+.social{
+	height: 10rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.social li a{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin-right: 1rem;
+	text-align: center;
+	padding-top: 13px;
+	
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	-o-border-radius:20px;
+	-ms-border-radius:20px;
+	border-radius:20px;
+	
+	/*background-color: #222;*/
+	-webkit-box-shadow: inset 0 0 0 40px #222;
+	-moz-box-shadow: inset 0 0 0 40px #222;
+	-o-box-shadow: inset 0 0 0 40px #222;
+	-ms-box-shadow: inset 0 0 0 40px #222;
+	box-shadow: inset 0 0 0 40px #222;
+	
+	color: #ff8d1e;
+}
+
+.social li a:hover{
+	-webkit-box-shadow: inset 0 0 0 3px #ff8d1e;
+	-moz-box-shadow: inset 0 0 0 3px #ff8d1e;
+	-o-box-shadow: inset 0 0 0 3px #ff8d1e;
+	-ms-box-shadow: inset 0 0 0 3px #ff8d1e;
+	box-shadow: inset 0 0 0 3px #ff8d1e;
+	
+	color: #ffffff;
+}
+
+.linktree{
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+  </style>
+
+<!-- Nav -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="adharwadlogo.png" alt="Logo" style="height: 40px;">
+        </a>
+
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="adharwad_home.html">Home</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adharwad_about.html">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_Assitedliving.html">Bedridden & Critical Care Centre</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+                        <li><a class="dropdown-item" href="adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Media
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                        <li><a class="dropdown-item" href="adharwad_blog.html">Blog</a></li>
+                        <li><a class="dropdown-item" href="adharwad_events.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="sosTab">SOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="accountTab">
+                        <i class="fa fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Account Overlay -->
+<div class="overlay" id="accountOverlay">
+    <span class="close-btn" id="closeAccountOverlay">&times;</span>
+    <div class="overlay-content">
+        <h4 class="text-center">Account</h4>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <p class="text-center mt-3">New User? <a href="#" class="text-primary">Sign Up</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- SOS Overlay -->
+<div class="overlay" id="sosOverlay">
+    <span class="close-btn" id="closeSosOverlay">&times;</span>
+    <div class="overlay-content">
+        <h4 class="text-center mb-4">Emergency Services</h4>
+        <div class="sos-options">
+            <a href="#"><i class="fa fa-ambulance"></i> Urgent Medical Facility</a>
+            <a href="#"><i class="fa fa-car"></i> Emergency Transport</a>
+            <a href="#"><i class="fa fa-heart"></i> Urgent Donations</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Account Overlay Logic
+    document.getElementById('accountTab').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeAccountOverlay').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'none';
+    });
+
+    // SOS Overlay Logic
+    document.getElementById('sosTab').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeSosOverlay').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'none';
+    });
+
+    // Close overlay when clicking outside the overlay content
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('overlay')) {
+            e.target.style.display = 'none';
+        }
+    });
+</script>
+
+
+<!-- Hero Page -->
+<div class="blog-section">
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/507eef133a3bd8a6a27d13f11bcc7dc08a1fa704416d91cd1ba2861bb409c7be?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32"
+      class="blog-hero-image"
+      alt="Blog section hero background"
+    />
+    <h1 class="blog-heading">Blogs</h1>
+    <article class="blog-card">
+      <header class="blog-card-header">
+        <span class="blog-category">Impact</span>
+        <h2 class="blog-title">
+          Transforming Lives Through Compassion Our Mission in Action
+        </h2>
+      </header>
+      <div class="blog-meta">
+        <div class="blog-author">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c843ce9a3ac0f9f7ee62cc9dad20ee05a473006b7768cff83a99b90074656d77?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32"
+            class="author-image"
+            alt="Author Meet Randhava's profile picture"
+          />
+          <span class="author-name">Meet Randhava</span>
+        </div>
+        <time class="blog-date">August 20, 2022</time>
+      </div>
+      <button class="read-more-btn" tabindex="0">Read more</button>
+    </article>
+  </div>
+
+  <!-- blogs -->
+  <div class="featured-section">
+    <div class="cards-container">
+      <div class="card-column">
+        <div class="card">
+          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+          <button class="action-button" tabindex="0">Read more</button>
+        </div>
+      </div>
+
+      <div class="card-column">
+        <div class="card">
+          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+          <button class="action-button" tabindex="0">Read more</button>
+        </div>
+      </div>
+
+      <div class="card-column">
+        <div class="card">
+          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+          <button class="action-button" tabindex="0">Read more</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-section">
+        <div class="cards-container">
+          <div class="card-column">
+            <div class="card">
+              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+              <button class="action-button" tabindex="0">Read more</button>
+            </div>
+          </div>
+
+          <div class="card-column">
+            <div class="card">
+              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+              <button class="action-button" tabindex="0">Read more</button>
+            </div>
+          </div>
+
+          <div class="card-column">
+            <div class="card">
+              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+              <button class="action-button" tabindex="0">Read more</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-section">
+            <div class="cards-container">
+              <div class="card-column">
+                <div class="card">
+                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                  <button class="action-button" tabindex="0">Read more</button>
+                </div>
+              </div>
+
+              <div class="card-column">
+                <div class="card">
+                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                  <button class="action-button" tabindex="0">Read more</button>
+                </div>
+              </div>
+
+              <div class="card-column">
+                <div class="card">
+                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
+                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                  <button class="action-button" tabindex="0">Read more</button>
+                </div>
+              </div>
+            </div>
+  </div>
+
+  <footer id="footer" class="footer-1">
+
+    <div class="main-footer widgets-dark typo-light">
+    <div class="container">
+    <div class="row " style="margin-top: 5vh; margin-bottom: -7vh;">
+
+
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        
+    <div class="widget subscribe no-box">
+     <img src="Adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
+    <br>
+     <p>Adharwad Niradhar & 
+    Apang Mahila Utkarsh 
+    Trust </p>
+    </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget no-box">
+    <h5 class="widget-title">Quick Links</h5>
+    <br>
+    <ul class="thumbnail-widget">
+    <li>
+    <div class="thumb-content"><a href="#.">About Us</a></div>	
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">Blogs</a></div>	
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">Events </a></div>	
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">Success Stories</a></div>	
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">Careers</a></div>	
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">SOS</a></div>	
+    </li>
+    
+    </ul>
+    </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget no-box">
+    <h5 class="widget-title">Get Started</h5>
+    <br>
+    <p>Get access to your full Training and Marketing Suite.</p>
+    <a class="btn" href="https://bit.ly/3m9avif" target="_blank">Donate Now</a>
+    </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-6 col-md-3">
+    
+    <div class="widget no-box">
+    <h5 class="widget-title">Contact Us</h5>
+    <br>
+    
+    <p><a href="https://maps.app.goo.gl/46iX1qpekhqdEFA18?g_st=iw" title="Adharwad">Plot No 20, Sector 1,
+    Kopar Khairane, 
+    Navi Mumbai - 400709,
+    Behind Terna International School</a></p>
+    <ul class="social">
+    <li class=""><a class="ease-all" href="#"><i class="fa fa-facebook linktree"></i></a></li>
+    <li class=""><a class="ease-all" href="#"><i class="fa fa-twitter linktree" ></i></a></li>
+    <li class=""><a class="ease-all" href="#"><i class="fa fa-instagram linktree"></i></a></li>
+    <li class=""><a class="ease-all" href="#"><i class="fa fa-google-plus linktree"></i></a></li>
+
+    </ul>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    <div class="footer-copyright">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 text-center">
+    <p>Copyright Company Name © 2022. All rights reserved.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+
+
+</head>
+</html>
