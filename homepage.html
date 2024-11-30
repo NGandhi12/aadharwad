@@ -7,7 +7,96 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
   <style>
+
+
+
+.stats-container {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stat-box {
+            flex: 1; /* Ensures equal size boxes */
+            text-align: center;
+            color: white;
+            padding: 30px 0; /* Increased padding for better spacing */
+            position: relative;
+        }
+
+        /* Color Styling for Each Box */
+        .stat-box:nth-child(1) {
+            background: #F18D51; /* Orange for Elderly Benefited */
+        }
+
+        .stat-box:nth-child(2) {
+            background: #D5544F; /* Darker Red for Years of Experience */
+        }
+
+        .stat-box:nth-child(3) {
+            background: #F18D51; /* Orange for Volunteers Enrolled */
+        }
+
+        .stat-box:nth-child(4) {
+            background: #D5544F; /* Darker Red for Women Empowered */
+        }
+
+        .stat-box i {
+            font-size: 40px; /* Increased icon size */
+            margin-bottom: 15px;
+            display: block;
+            animation: icon-bounce 0.5s ease-in-out;
+        }
+
+        .stat-number {
+            font-size: 40px; /* Increased number size */
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .stat-title {
+            font-size: 18px; /* Increased title size */
+        }
+
+        /* Ensure Edge-to-Edge Layout */
+        .stats-container > .stat-box {
+            margin: 0; /* Removes any gaps between boxes */
+            padding: 30px;
+        }
+
+        /* Animation for Bouncing Icons */
+        @keyframes icon-bounce {
+            0% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column; /* Stacks boxes vertically */
+            }
+
+            .stat-box {
+                padding: 20px;
+            }
+        }
+
+
+
+
+
 
       /* Navbar Styling */
       .navbar {
@@ -166,7 +255,7 @@
         top: 75vh; /* Place it below the hero section and above the pillars section */
         left: 50%; /* Center horizontally */
         transform: translateX(-50%); /* Align center horizontally */
-        z-index: 1050; /* Ensure it's above other elements */
+        z-index: 100 ; /* Ensure it's above other elements */
         background-color: #f4a261; /* Solid background color (no transparency) */
         border-radius: 15px;
         display: flex;
@@ -307,7 +396,8 @@
     }
 
     .pillars-grid {
-      max-width: 100%;
+      width: 100vw;
+      
     }
 
     .pillars-row {
@@ -549,9 +639,116 @@
       object-fit: cover;
       margin: 0 auto 10px auto;
     }
+    .donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1050;
+            justify-content: center;
+            align-items: center;
+        }
 
-    /* Footer */
-    footer .main-footer{	padding: 20px 0;	background: #252525;}
+        .donover-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            z-index: 2000;
+            position: relative;
+        }
+
+        .close-donover {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+            z-index: 2000;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 2000;
+        }
+
+        .donation-method {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            z-index: 2000;
+        }
+
+        .donation-method:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-method .method-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .icon-action {
+            cursor: pointer;
+            margin-left: 10px;
+            color: gray;
+        }
+
+        .icon-action:hover {
+            color: black;
+        }
+
+        /* Tooltip styling */
+        .tooltip-popup {
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            top: -30px;
+            right: 0;
+            display: none;
+            z-index: 2000;
+        }
+
+        /* Share donover */
+        .share-donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1060;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .share-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 2000;
+        }
+
+                  /* Main Footer */
+footer .main-footer{	padding: 20px 0;	background: #252525;}
 footer ul{	padding-left: 0;	list-style: none;}
 
 /* Copy Right Footer */
@@ -667,19 +864,7 @@ transition: all 250ms ease-in-out 0s;
   box-shadow: inset 0 0 0 3px #ff8d1e;
   color: #ffffff;
 }
-
-    /* Other sections */
-    .stats-section {
-      background-color: #D5544F;
-      color: white;
-      padding: 0;
-      margin: 0 ;
-      text-align: center;
-    }
-    .donate-section {
-      background-color: #F2D4D2;
-      padding: 2rem;
-      text-align: center;}
+        
   </style>
 </head>
 <body>
@@ -689,7 +874,7 @@ transition: all 250ms ease-in-out 0s;
   <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="#">
-          <img src="/adharwadlogo.png" alt="Logo" style="height: 40px;">
+          <img src="./img/./img/adharwadlogo.png" alt="Logo" style="height: 40px;">
       </a>
 
       <!-- Toggle Button -->
@@ -705,7 +890,7 @@ transition: all 250ms ease-in-out 0s;
               <a class="nav-link" href="/homepage.html" style="color: white;">Home</a>
           </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/adharwad_about.html">About Us</a>
+                  <a class="nav-link" href="./adharwad_about.html">About Us</a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -735,7 +920,7 @@ transition: all 250ms ease-in-out 0s;
                   <a class="nav-link" href="#" id="sosTab">SOS</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
+                  <a class="nav-link btn btn-warning text-white" href="#"id="opendonoverBtn">Donate</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#" id="accountTab">
@@ -746,6 +931,41 @@ transition: all 250ms ease-in-out 0s;
       </div>
   </div>
 </nav>
+
+<!-- donate -->
+ <!-- Donation donover -->
+<div class="donover" id="donationdonover">
+  <div class="donover-content">
+      <span class="close-donover" id="closedonover">&times;</span>
+      <div class="section-title">Donate for the Organization!</div>
+
+      <div class="donation-method">
+          <div class="method-title">Directly Bank Transfer</div>
+          <p>Account Number: 2223330000456987 <i class="fa fa-clone icon-action" data-copy="2223330000456987"></i></p>
+          <p>Beneficiary Name: Organization</p>
+          <p>IFSC Code: WRDSBIOBNKPIS <i class="fa fa-clone icon-action" data-copy="WRDSBIOBNKPIS"></i></p>
+      </div>
+
+      <div class="donation-method">
+          <div class="method-title">UPI</div>
+          <p>Mobile Number: 8939406129 <i class="fa fa-clone icon-action" data-copy="8939406129"></i></p>
+          <p>UPI ID: 21551 <i class="fa fa-clone icon-action" data-copy="21551"></i></p>
+          <p>QR Code:</p>
+          <img src="your-qr-code-image.png" alt="QR Code" style="max-width: 100px;">
+      </div>
+  </div>
+</div>
+
+<!-- Share donover -->
+<div class="share-donover" id="sharedonover">
+  <div class="share-content">
+      <span class="close-donover" id="closeSharedonover">&times;</span>
+      <div class="section-title">Share</div>
+      <p>Would you like to connect your account details with the website?</p>
+      <button class="btn btn-success">Yes</button>
+      <button class="btn btn-danger" id="closeShare">No</button>
+  </div>
+</div>
 
 <!-- Account Overlay -->
 <div class="overlay" id="accountOverlay">
@@ -806,7 +1026,7 @@ transition: all 250ms ease-in-out 0s;
   </section>
   
 <!-- Shortcuts -->
-<div class="icon-box body-shortcuts">
+<div class="icon-box body-shortcuts " style="margin-top: -3vh">
     <div class="icon-item">
       <i class="fa fa-heart"></i>
         <span>Donate</span>
@@ -827,9 +1047,9 @@ transition: all 250ms ease-in-out 0s;
 
 
   <!-- Pillars Section -->
-  <section class="pillars-container p-4">
+  <section class="pillars-container p-4" >
     <h2 class="pillars-heading">Pillars of Aadharwad</h2>
-    <div class="pillars-grid">
+    <div class="pillars-grid" style="display: flex; width: 100%; align-items: center;">
       <div class="pillars-row">
         <article class="pillar-column">
           <div class="pillar-content">
@@ -863,32 +1083,28 @@ transition: all 250ms ease-in-out 0s;
   <br>
 
   <!-- Stats -->
-  <section class="stats-section m-0 text-center">
-    <div class="container-fluid p-0">
-      <div class="row g-0">
-        <div class="col d-flex flex-column justify-content-center align-items-center" style="background-color: #E67750;">
-          <br>
-          <h2>12450</h2>
-          <p>Elderly Benefited</p>
-        </div>
-        <div class="col d-flex flex-column justify-content-center align-items-center" style="background-color: #D5544F;">
-          <br>
-          <h2>16</h2>
-          <p>Years of Experience</p>
-        </div>
-        <div class="col d-flex flex-column justify-content-center align-items-center" style="background-color: #E67750;">
-          <br>
-          <h2>1230</h2>
-          <p>Volunteers Enrolled</p>
-        </div>
-        <div class="col d-flex flex-column justify-content-center align-items-center" style="background-color: #D5544F;">
-          <br>
-          <h2>1640</h2>
-          <p>Women Empowered</p>
-        </div>
-      </div>
+  <div class="stats-container">
+    <div class="stat-box">
+        <i class="fa fa-heartbeat"></i>
+        <div class="stat-number" data-target="12450">0</div>
+        <div class="stat-title">Elderly Benefited</div>
     </div>
-  </section>
+    <div class="stat-box">
+        <i class="fa fa-thumbs-up"></i>
+        <div class="stat-number" data-target="16">0</div>
+        <div class="stat-title">Years of Experience & Trust</div>
+    </div>
+    <div class="stat-box">
+        <i class="fa fa-users"></i>
+        <div class="stat-number" data-target="1230">0</div>
+        <div class="stat-title">Volunteers Enrolled</div>
+    </div>
+    <div class="stat-box">
+        <i class="fa fa-users"></i> <!-- Updated Icon for Women Empowered -->
+        <div class="stat-number" data-target="1640">0</div>
+        <div class="stat-title">Women Empowered</div>
+    </div>
+</div>
 
   <!-- Donation Section -->
   <section class="donation-container">
@@ -1043,95 +1259,103 @@ transition: all 250ms ease-in-out 0s;
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer id="footer" class="footer-1">
+<!-- Footer -->
+<footer id="footer" class="footer-1">
 
-    <div class="main-footer widgets typo-light" style="background-color: #4D2A30;">
-    <div class="container">
-    <div class="row " style="margin-top: 5vh; margin-bottom: -7vh;">
+  <div class="main-footer widgets typo-light" style="background-color: #4D2A30;">
+  <div class="container">
+  <div class="row " style="margin-top: 5vh; margin-bottom: -7vh;">
 
 
 
-    <div class="col-xs-12 col-sm-6 col-md-3">
-        
-    <div class="widget subscribe no-box">
-     <img src="img/adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
-    <br>
-     <p>Adharwad Niradhar & 
-    Apang Mahila Utkarsh 
-    Trust </p>
-    </div>
-    </div>
-    
-    <div class="col-xs-12 col-sm-6 col-md-3">
-    <div class="widget no-box">
-    <h5 class="widget-title">Quick Links</h5>
-    <br>
-    <ul class="thumbnail-widget">
-    <li>
-    <div class="thumb-content"><a href="#.">About Us</a></div>	
-    </li>
-    <li>
-    <div class="thumb-content"><a href="#.">Blogs</a></div>	
-    </li>
-    <li>
-    <div class="thumb-content"><a href="#.">Events </a></div>	
-    </li>
-    <li>
-    <div class="thumb-content"><a href="#.">Success Stories</a></div>	
-    </li>
-    <li>
-    <div class="thumb-content"><a href="#.">Careers</a></div>	
-    </li>
-    <li>
-    <div class="thumb-content"><a href="#.">SOS</a></div>	
-    </li>
-    
-    </ul>
-    </div>
-    </div>
-    
-    <div class="col-xs-12 col-sm-6 col-md-3">
-    <div class="widget no-box">
-    <h5 class="widget-title">Get Started</h5>
-    <br>
-    <p>Get access to your full Training and Marketing Suite.</p>
-    <a class="btn" href="https://bit.ly/3m9avif" target="_blank" style="background-color: #D5544F;">Donate Now</a>
-    </div>
-    </div>
-    
-    <div class="col-xs-12 col-sm-6 col-md-3">
-    
-    <div class="widget no-box">
-    <h5 class="widget-title">Contact Us</h5>
-    <br>
-    
-    <p><a href="https://maps.app.goo.gl/46iX1qpekhqdEFA18?g_st=iw" title="Adharwad">Plot No 20, Sector 1,
-    Kopar Khairane, 
-    Navi Mumbai - 400709,
-    Behind Terna International School</a></p>
-    <ul class="social">
+  <div class="col-xs-12 col-sm-6 col-md-3">
+      
+  <div class="widget subscribe no-box">
+   <img src="./img/./img/adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
+  <br>
+   <p>Adharwad Niradhar & 
+  Apang Mahila Utkarsh 
+  Trust </p>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="widget no-box">
+  <h5 class="widget-title">Quick Links</h5>
+  <br>
+  <ul class="thumbnail-widget">
+  <li>
+  <div class="thumb-content"><a href="#.">About Us</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Blogs</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Events </a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Success Stories</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Careers</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">SOS</a></div>	
+  </li>
+  
+  </ul>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="widget no-box">
+  <h5 class="widget-title">Get Started</h5>
+  <br>
+  <p>Get access to your full Training and Marketing Suite.</p>
+  <a class="btn" href="" target="_blank" style="background-color: #b52b3a;">Donate Now</a>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  
+  <div class="widget no-box">
+  <h5 class="widget-title">Contact Us</h5>
+  <br>
+  
+  <p><a href="https://maps.app.goo.gl/46iX1qpekhqdEFA18?g_st=iw" title="Adharwad">Plot No 20, Sector 1,
+  Kopar Khairane, 
+  Navi Mumbai - 400709,
+  Behind Terna International School</a></p>
+  <ul class="social">
       <li><a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a></li>
       <li><a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a></li>
       <li><a href="https://pinterest.com" target="_blank"><i class="bi bi-pinterest"></i></a></li>
       <li><a href="https://youtube.com" target="_blank"><i class="bi bi-youtube"></i></a></li>
     </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div> 
-    <div class="footer-copyright">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-12 text-center">
-    <p>Copyright Company Name © 2022. All rights reserved.</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </footer>
-</script>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+  </div> 
+  <div class="footer-copyright">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 text-center">
+  <p>Copyright Company Name © 2022. All rights reserved.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </footer>
+
+
+
+
+
+
+
+
 <script>
   document.getElementById('accountTab').addEventListener('click', function () {
     document.getElementById('accountOverlay').style.display = 'flex';
@@ -1148,8 +1372,97 @@ transition: all 250ms ease-in-out 0s;
   document.getElementById('closeSosOverlay').addEventListener('click', function () {
     document.getElementById('sosOverlay').style.display = 'none';
   });
+
+  //donate 
+      // Open Donation donover
+      document.getElementById('opendonoverBtn').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'flex';
+    });
+
+    // Close Donation donover
+    document.getElementById('closedonover').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'none';
+    });
+
+    // Close Donation donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('donationdonover')) {
+            document.getElementById('donationdonover').style.display = 'none';
+        }
+    });
+
+    // Show Tooltip and Copy to Clipboard
+    document.querySelectorAll('.icon-action').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            const textToCopy = e.target.getAttribute('data-copy');
+            navigator.clipboard.writeText(textToCopy);
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('tooltip-popup');
+            tooltip.innerText = 'Copied';
+            e.target.parentNode.appendChild(tooltip);
+            tooltip.style.display = 'block';
+            setTimeout(() => {
+                tooltip.remove();
+            }, 1500);
+        });
+    });
+
+    // Open Share donover
+    document.querySelectorAll('.fa-share').forEach(shareIcon => {
+        shareIcon.addEventListener('click', () => {
+            document.getElementById('sharedonover').style.display = 'flex';
+        });
+    });
+
+    // Close Share donover
+    document.getElementById('closeSharedonover').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+
+    // Close Share donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('sharedonover')) {
+            document.getElementById('sharedonover').style.display = 'none';
+        }
+    });
+
+    // Close Share donover when clicking "No"
+    document.getElementById('closeShare').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+
+  // Function to animate numbers
+  const animateNumbers = () => {
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        statNumbers.forEach((stat) => {
+            const target = +stat.getAttribute('data-target');
+            const increment = target / 150; // Adjust increment for 1.5 seconds
+
+            let start = Math.floor(Math.random() * (target / 2)); // Random offset start
+            const updateNumber = () => {
+                start += increment;
+
+                if (start >= target) {
+                    stat.textContent = target;
+                } else {
+                    stat.textContent = Math.floor(start);
+                    setTimeout(updateNumber, 10); // Controls speed
+                }
+            };
+
+            updateNumber();
+        });
+    };
+
+
+    // Call the function on page load
+    window.onload = animateNumbers;
+
+
+
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

@@ -10,13 +10,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
-
-    /* Navbar Styling */
-    .navbar {
+/* Navbar Styling */
+.navbar {
       background-color: #262E27;
       opacity: 90%;
+      position: relative;
       z-index: 1000;
-
     }
     .navbar-nav .nav-link {
       color: orange;
@@ -29,287 +28,162 @@
       font-weight: bold;
     }
 
+    /* Overlays */
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100; /* Ensure it's above other elements */
+}
 
-        /* Overlays */
-        .overlay {
+.overlay-content {
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+    /* SOS Options */
+    .sos-options a {
+      display: block;
+      background: #dc3545;
+      color: #fff;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .sos-options a:hover {
+      background: #b52b3a;
+    }
+
+ 
+        /* Donation styling */
+        .donover {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            display: none;
-            align-items: center;
-            justify-content: center;
             z-index: 1050;
+            justify-content: center;
+            align-items: center;
         }
 
-        .overlay-content {
-            background: #fff;
-            color: #333;
+        .donover-content {
+            background: white;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
+            max-width: 500px;
+            width: 90%;
             position: relative;
         }
 
-        .close-btn {
+        .close-donover {
             position: absolute;
             top: 10px;
-            right: 10px;
-            color: #333;
+            right: 15px;
             font-size: 24px;
             cursor: pointer;
+            color: black;
         }
 
-        /* SOS Options */
-        .sos-options a {
-            display: block;
-            background: #dc3545;
-            color: #fff;
-            padding: 10px;
-            margin: 10px 0;
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
             text-align: center;
-            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .donation-method {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .donation-method:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-method .method-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .icon-action {
+            cursor: pointer;
+            margin-left: 10px;
+            color: gray;
+        }
+
+        .icon-action:hover {
+            color: black;
+        }
+
+        /* Tooltip styling */
+        .tooltip-popup {
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
             border-radius: 5px;
+            font-size: 12px;
+            top: -30px;
+            right: 0;
+            display: none;
         }
 
-        .sos-options a:hover {
-            background: #b52b3a;
+        /* Share donover */
+        .share-donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1060;
+            justify-content: center;
+            align-items: center;
         }
 
-/* Hero page */
-.blog-section {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 980px;
-    width: 100%;
-    padding: 628px 67px 0;
-  }
-  .blog-hero-image {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .blog-heading {
-    position: relative;
-    color: #fff;
-    text-align: center;
-    align-self: center;
-    font: 700 64px/1.2 Roboto, sans-serif;
-  }
-  .blog-card {
-    position: relative;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px -6px rgba(24, 26, 42, 0.12);
-    background-color: #d5544f;
-    z-index: 10;
-    display: flex;
-    width: 758px;
-    max-width: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    align-items: start;
-    margin: 85px 0 -135px;
-    padding: 30px 35px;
-  }
-  .blog-card-header {
-    align-self: stretch;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: start;
-  }
-  .blog-category {
-    align-self: start;
-    border-radius: 6px;
-    color: var(--White, #fff);
-    padding: 4px 10px;
-    font: 500 14px/1 Work Sans, sans-serif;
-  }
-  .blog-title {
-    color: #fff;
-    margin-top: 16px;
-    font: 600 36px/43px Raleway, sans-serif;
-  }
-  .blog-meta {
-    display: flex;
-    margin-top: 24px;
-    align-items: center;
-    gap: 20px;
-    font-family: Work Sans, sans-serif;
-    color: #fff;
-    justify-content: start;
-    flex-wrap: wrap;
-  }
-  .blog-author {
-    align-self: stretch;
-    display: flex;
-    min-width: 240px;
-    align-items: center;
-    gap: 12px;
-    font: 500 30px/0.8 Work Sans, sans-serif;
-    justify-content: start;
-    margin: auto 0;
-  }
-  .author-image {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 36px;
-    border-radius: 28px;
-    align-self: stretch;
-    margin: auto 0;
-  }
-  .author-name {
-    align-self: stretch;
-    margin: auto 0;
-  }
-  .blog-date {
-    font: 400 32px/1 Work Sans, sans-serif;
-    align-self: stretch;
-    margin: auto 0;
-  }
-  .read-more-btn {
-    align-self: stretch;
-    border-radius: 4px;
-    background-color: #fff;
-    margin-top: 24px;
-    color: var(--Primary-text, #1d2130);
-    text-align: right;
-    padding: 16px 32px;
-    font: 500 16px Roboto, sans-serif;
-    cursor: pointer;
-  }
-  @media (max-width: 991px) {
-    .blog-section {
-      max-width: 100%;
-      padding: 100px 20px 0;
-    }
-    .blog-heading {
-      font-size: 40px;
-    }
-    .blog-card {
-      margin: 40px 0 10px;
-      padding: 0 20px;
-    }
-    .blog-category {
-      white-space: initial;
-    }
-    .blog-title {
-      max-width: 100%;
-    }
-    .blog-meta {
-      max-width: 100%;
-    }
-    .read-more-btn {
-      padding: 0 20px;
-    }
-  }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin:1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
+        .share-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
 
-  /* Blogs */
-  .featured-section {
-        margin-top: 100px;
-        padding: 20px;
-        width: 100%;
-        max-width: 1200px;
-      }
-      .cards-container {
-        gap: 20px;
-        display: flex;
-        justify-content: space-between;
-      }
-      .card-column {
-        display: flex;
-        flex-direction: column;
-        width: 32%;
-      }
-      .card {
-        border-radius: 12px;
-        background: var(--Black, #0b0706);
-        color: #fff;
-        padding: 30px;
-        font: 16px Roboto, sans-serif;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .card-title {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 1.4;
-      }
-      .card-description {
-        font-weight: 400;
-        line-height: 1.5;
-        margin-top: 16px;
-      }
-      .action-button {
-        border-radius: 4px;
-        background-color: #fff;
-        color: var(--Primary-text, #1d2130);
-        font-weight: 500;
-        margin-top: 20px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-      }
-      .action-button:hover {
-        background-color: #f0f0f0;
-      }
-      .card-with-image {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        color: #fff;
-      }
-      .card-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .card-overlay {
-        position: relative;
-        padding: 20px;
-        background: rgba(11, 7, 6, 0.8);
-      }
 
-      /* Ensure size consistency across all screen sizes */
-      @media (max-width: 991px) {
-        .featured-section {
-          margin-top: 60px;
-          padding: 10px;
-        }
-        .cards-container {
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-        .card-column {
-          width: 100%;
-          margin-bottom: 20px;
-        }
-      }
+
+
+ 
 
           /* Main Footer */
 footer .main-footer{	padding: 20px 0;	background: #252525;}
@@ -450,71 +324,307 @@ transition: all 250ms ease-in-out 0s;
     margin-right: auto; 
 }
 
+
+
+     /* Box Styling */
+     .custom-box {
+            background-color: #cc5b4d;
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            width: 25%;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            margin-top: -100px;
+           
+        }
+
+        /* Title Styling */
+        .custom-box h5 {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .custom-box h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Author Info Styling */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        /* Button Styling */
+        .read-more-btn {
+            background-color: white;
+            color: #cc5b4d;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .read-more-btn:hover {
+            background-color: #cc5b4d;
+            color: white;
+            text-decoration: none;
+        }
+
+        .blog{
+          padding-left: 10%;
+        }
+
+
+
+
+        .card-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #0f1f01;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 85%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      color: #F18D51;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .card-content a {
+      margin-top: auto; /* Push the button to the bottom */
+      display: inline-block;
+      background-color: #D5544F;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .card-content a:hover {
+      background-color: #fff;
+      color: #D5544F;
+      border: 2px solid #D5544F;
+    }
+
+
+
+
+
+    /* Shortcuts Overlay */
+    /* Shortcuts Overlay */
+    .icon-box {
+        position: absolute; /* Position the shortcut between sections */
+        top: 203vh; /* Place it below the hero section and above the pillars section */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Align center horizontally */
+        z-index: 100 ; /* Ensure it's above other elements */
+        background-color: #f4a261; /* Solid background color (no transparency) */
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto; /* Dynamic width based on content */
+        max-width: 600px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon Items */
+    .icon-item {
+        margin: 10px; /* Spacing between icons */
+        width: 70px; /* Icon size */
+        height: 70px;
+        font-size: 20px; /* Font size for icons */
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        background-color: #e76f51;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f4e1d2;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+
+    /* Hover Effects */
+    .icon-item:hover {
+        transform: scale(1.1);
+        background-color: #d35441; /* Slightly darker color on hover */
+    }
+
+    /* Icon Labels */
+    .icon-item span {
+        position: absolute;
+        opacity: 0;
+        font-size: 12px;
+        text-align: center;
+        color: #f4e1d2;
+        transition: opacity 0.3s;
+    }
+
+    .icon-item:hover span {
+        opacity: 1;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .icon-box {
+            width: 90%; /* Adjust for smaller screens */
+            top: 70vh; /* Adjust placement for smaller screens */
+        }
+        .icon-item {
+            width: 70px; /* Maintain size on smaller screens */
+            height: 70px;
+            font-size: 20px; /* Maintain font size on smaller screens */
+        }
+        .icon-item span {
+            font-size: 10px;
+        }
+    }
+
+
+
   </style>
 
-<!-- Nav -->
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="#">
-          <img src="/adharwadlogo.png" alt="Logo" style="height: 40px;">
-      </a>
-
-      <!-- Toggle Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/homepage.html" >Home</a>
-          </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/adharwad_about.html">About Us</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Services
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                      <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
-                  </ul>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                      Media
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
-                      <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
-                      <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="sosTab">SOS</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" id="accountTab">
-                      <i class="fa fa-user"></i>
-                  </a>
-              </li>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="/./img/adharwadlogo.png" alt="Logo" style="height: 40px;">
+        </a>
+  
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+<!-- Navbar Links -->
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/homepage.html" style="color: white;">Home</a>
+  </li>
+      <li class="nav-item">
+          <a class="nav-link" href="./adharwad_about.html">About Us</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+              <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
           </ul>
-      </div>
-  </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Media
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+              <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
+          </ul>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#" id="sosTab">SOS</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link btn btn-warning text-white" href="#"id="opendonoverBtn">Donate</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#" id="accountTab">
+              <i class="fa fa-user"></i>
+          </a>
+      </li>
+  </ul>
+</div>
+</div>
 </nav>
+
+<!-- !-- Donation donover  -->
+<div class="donover" id="donationdonover">
+<div class="donover-content">
+  <span class="close-donover" id="closedonover">&times;</span>
+  <div class="section-title">Donate for the Organization!</div>
+
+  <div class="donation-method">
+      <div class="method-title">Directly Bank Transfer</div>
+      <p>Account Number: 2223330000456987 <i class="fa fa-clone icon-action" data-copy="2223330000456987"></i></p>
+      <p>Beneficiary Name: Organization</p>
+      <p>IFSC Code: WRDSBIOBNKPIS <i class="fa fa-clone icon-action" data-copy="WRDSBIOBNKPIS"></i></p>
+  </div>
+
+  <div class="donation-method">
+      <div class="method-title">UPI</div>
+      <p>Mobile Number: 8939406129 <i class="fa fa-clone icon-action" data-copy="8939406129"></i></p>
+      <p>UPI ID: 21551 <i class="fa fa-clone icon-action" data-copy="21551"></i></p>
+      <p>QR Code:</p>
+      <img src="your-qr-code-image.png" alt="QR Code" style="max-width: 100px;">
+  </div>
+</div>
+</div>
+
+<!-- Share donover -->
+<div class="share-donover" id="sharedonover">
+<div class="share-content">
+  <span class="close-donover" id="closeSharedonover">&times;</span>
+  <div class="section-title">Share</div>
+  <p>Would you like to connect your account details with the website?</p>
+  <button class="btn btn-success">Yes</button>
+  <button class="btn btn-danger" id="closeShare">No</button>
+</div>
+</div>
 
 <!-- Account Overlay -->
 <div class="overlay" id="accountOverlay">
@@ -549,37 +659,11 @@ transition: all 250ms ease-in-out 0s;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Account Overlay Logic
-    document.getElementById('accountTab').addEventListener('click', () => {
-        document.getElementById('accountOverlay').style.display = 'flex';
-    });
 
-    document.getElementById('closeAccountOverlay').addEventListener('click', () => {
-        document.getElementById('accountOverlay').style.display = 'none';
-    });
-
-    // SOS Overlay Logic
-    document.getElementById('sosTab').addEventListener('click', () => {
-        document.getElementById('sosOverlay').style.display = 'flex';
-    });
-
-    document.getElementById('closeSosOverlay').addEventListener('click', () => {
-        document.getElementById('sosOverlay').style.display = 'none';
-    });
-
-    // Close overlay when clicking outside the overlay content
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('overlay')) {
-            e.target.style.display = 'none';
-        }
-    });
-</script>
 
 
 <!-- Hero Page -->
-<div class="blog-section">
+<!-- <div class="blog-section">
     <img
       loading="lazy"
       src="https://cdn.builder.io/api/v1/image/assets/TEMP/507eef133a3bd8a6a27d13f11bcc7dc08a1fa704416d91cd1ba2861bb409c7be?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32"
@@ -608,90 +692,129 @@ transition: all 250ms ease-in-out 0s;
       </div>
       <button class="read-more-btn" tabindex="0">Read more</button>
     </article>
-  </div>
+  </div> -->
 
-  <!-- blogs -->
-  <div class="featured-section">
-    <div class="cards-container">
-      <div class="card-column">
-        <div class="card">
-          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-          <button class="action-button" tabindex="0">Read more</button>
-        </div>
-      </div>
 
-      <div class="card-column">
-        <div class="card">
-          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-          <button class="action-button" tabindex="0">Read more</button>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero bg-light text-white py-5" style="background-image: url('./img/assisted.png'); background-size: cover; background-position: center; height: 80vh;">
+      <div class="container">
+        <H1 ></a> Assisted Living Center </H1>
       </div>
+  </section>
 
-      <div class="card-column">
-        <div class="card">
-          <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-          <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-          <button class="action-button" tabindex="0">Read more</button>
-        </div>
-      </div>
+  <div class="blog">
+  <div class="custom-box mx-auto">
+    <h5>Impact</h5>
+    <h2>Heal the World, One Life at a Time - Medical Drive</h2>
+    <div class="author-section mb-3">
+        <img src="https://via.placeholder.com/30" alt="Author" class="author-image">
+        <span>Manit Randhava</span>
+        <span>August 20, 2022</span>
     </div>
+    <a href="linked-page.html" class="read-more-btn">Read more</a>
+</div>
 
-    <div class="featured-section">
-        <div class="cards-container">
-          <div class="card-column">
-            <div class="card">
-              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <button class="action-button" tabindex="0">Read more</button>
-            </div>
-          </div>
+</div>
+<br>
+<br>
+<br>
 
-          <div class="card-column">
-            <div class="card">
-              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <button class="action-button" tabindex="0">Read more</button>
-            </div>
-          </div>
 
-          <div class="card-column">
-            <div class="card">
-              <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-              <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <button class="action-button" tabindex="0">Read more</button>
-            </div>
-          </div>
-        </div>
 
-        <div class="featured-section">
-            <div class="cards-container">
-              <div class="card-column">
-                <div class="card">
-                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                  <button class="action-button" tabindex="0">Read more</button>
-                </div>
-              </div>
-
-              <div class="card-column">
-                <div class="card">
-                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                  <button class="action-button" tabindex="0">Read more</button>
-                </div>
-              </div>
-
-              <div class="card-column">
-                <div class="card">
-                  <h2 class="card-title">Loreum ipsum Loreum ipsum</h2>
-                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                  <button class="action-button" tabindex="0">Read more</button>
-                </div>
-              </div>
-            </div>
+<div class="card-row">
+  <div class="card">
+    <img src="holi.jpeg" alt="Card Image">
+    <div class="card-content">
+      <h3>Adharwad Old Age Home: Where Holi Brings Generations Together in Joyful Celebration.</h3>
+      <p>Adharwad Old Age Home spread the vibrant spirit of Holi across all its centers, located...</p>
+      <a href="https://www.adharwad.org/adharwad-old-age-home-where-holi-brings-generations-together-in-joyful-celebration/" target="_blank">Read more</a>
+    </div>
   </div>
+  <div class="card">
+    <img src="mobility.jpeg" alt="Card Image">
+    <div class="card-content">
+      <h3>Empowering Mobility: Adharwad Old Age Home Donates Cycles to the Needy</h3>
+      <p>Adharwad Old Age Home, driven by its commitment to serving the community, recently extended a helping hand to the needy …</p>
+      <a href="https://www.adharwad.org/empowering-mobility-adharwad-old-age-home-donates-cycles-to-the-needy/" target="_blank">Read more</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="myleftfoot.jpg" alt="Card Image">
+    <div class="card-content">
+      <h3>My Left Foot</h3>
+      <p>LABDUL WAJID Kids are one of the bountiful blessings of Almighty Allah. These angelic creatures own godly attributes with their ….</p>
+      <a href="https://www.adharwad.org/adharwad-old-age-home-where-holi-brings-generations-together-in-joyful-celebration/" target="_blank">Read more</a>
+    </div>
+  </div>
+</div>
+<div class="card-row">
+  <div class="card">
+    <img src="caretakers.png" alt="Card Image">
+    <div class="card-content">
+      <h3>Old Age Homes Are Becoming Caretaker Centres</h3>
+      <p>An article posted on Maharashtra Times Mumbai वृद्धाश्रम बनताहेत केअर टेकर सेंटर मटा ऑनलाइन | Updated:Nov 29, 2017, 02:13AM IST …</p>
+      <a href="https://example.com/lorem3" target="_blank">Read more</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="preference.png" alt="Card Image">
+    <div class="card-content">
+      <h3>Senior Citizens Prefering To Old Age Homes</h3>
+      <p>ज्येष्ठांचीच वृद्धाश्रमांना पसंती मटा ऑनलाइन Nov 28, 2017, 04:00AM IST goo.gl/Mz2oG6 ….</p>
+      <a href="https://example.com/lorem4" target="_blank">Read more</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="ngo-activity-doctor-examine-child-health-clinic-center-which-organized-half-india-s-children-under-age-63979746.webp" alt="Card Image">
+    <div class="card-content">
+      <h3>Medical Drive in Koper Khairane</h3>
+      <p>Solving all problems, one at a time. Witness Adharwad's initiative in making healthy living a priority..</p>
+      <a href="https://example.com/lorem5" target="_blank">Read more</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Shortcuts -->
+<div class="icon-box body-shortcuts " style="margin-top: -3vh">
+  <div class="icon-item">
+    <i class="fa fa-heart"></i>
+      <span>Donate</span>
+  </div>
+  <div class="icon-item">
+      <i class="fa fa-id-card"></i>
+      <span>Admission</span>
+  </div>
+  <div class="icon-item">
+      <i class="fa fa-envelope"></i>
+      <span>Contact</span>
+  </div>
+  <div class="icon-item">
+      <i class="fa fa-comments"></i>
+      <span>Review</span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ 
 
   <footer id="footer" class="footer-1">
 
@@ -704,7 +827,7 @@ transition: all 250ms ease-in-out 0s;
     <div class="col-xs-12 col-sm-6 col-md-3">
         
     <div class="widget subscribe no-box">
-     <img src="Adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
+     <img src="./img/adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
     <br>
      <p>Adharwad Niradhar & 
     Apang Mahila Utkarsh 
@@ -782,6 +905,132 @@ transition: all 250ms ease-in-out 0s;
     </div>
     </div>
     </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+    // Account Overlay Logic
+    document.getElementById('accountTab').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeAccountOverlay').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'none';
+    });
+
+    // SOS Overlay Logic
+    document.getElementById('sosTab').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeSosOverlay').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'none';
+    });
+
+    // Close overlay when clicking outside the overlay content
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('overlay')) {
+            e.target.style.display = 'none';
+        }
+    });
+
+
+
+
+
+
+
+      // Open Donation donover
+      document.getElementById('opendonoverBtn').addEventListener('click', () => {
+          document.getElementById('donationdonover').style.display = 'flex';
+      });
+  
+      // Close Donation donover
+      document.getElementById('closedonover').addEventListener('click', () => {
+          document.getElementById('donationdonover').style.display = 'none';
+      });
+  
+      // Close Donation donover on clicking outside the content
+      window.addEventListener('click', (e) => {
+          if (e.target === document.getElementById('donationdonover')) {
+              document.getElementById('donationdonover').style.display = 'none';
+          }
+      });
+  
+      // Show Tooltip and Copy to Clipboard
+      document.querySelectorAll('.icon-action').forEach(icon => {
+          icon.addEventListener('click', (e) => {
+              const textToCopy = e.target.getAttribute('data-copy');
+              navigator.clipboard.writeText(textToCopy);
+              const tooltip = document.createElement('div');
+              tooltip.classList.add('tooltip-popup');
+              tooltip.innerText = 'Copied';
+              e.target.parentNode.appendChild(tooltip);
+              tooltip.style.display = 'block';
+              setTimeout(() => {
+                  tooltip.remove();
+              }, 1500);
+          });
+      });
+  
+      // Open Share donover
+      document.querySelectorAll('.fa-share').forEach(shareIcon => {
+          shareIcon.addEventListener('click', () => {
+              document.getElementById('sharedonover').style.display = 'flex';
+          });
+      });
+  
+      // Close Share donover
+      document.getElementById('closeSharedonover').addEventListener('click', () => {
+          document.getElementById('sharedonover').style.display = 'none';
+      });
+  
+      // Close Share donover on clicking outside the content
+      window.addEventListener('click', (e) => {
+          if (e.target === document.getElementById('sharedonover')) {
+              document.getElementById('sharedonover').style.display = 'none';
+          }
+      });
+  
+      // Close Share donover when clicking "No"
+      document.getElementById('closeShare').addEventListener('click', () => {
+          document.getElementById('sharedonover').style.display = 'none';
+      });
+
+
+
+
+
+
+
+
+      
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </head>
